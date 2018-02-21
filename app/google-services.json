@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1024259056910",
+    "firebase_url": "https://becomealegend-362fe.firebaseio.com",
+    "project_id": "becomealegend-362fe",
+    "storage_bucket": "becomealegend-362fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024259056910:android:68e068792a7ee26c",
+        "android_client_info": {
+          "package_name": "com.mert.becomealegend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024259056910-nnpm5nvdl6bagfjq8vgfcsing60bus09.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mert.becomealegend",
+            "certificate_hash": "29b02180aeb15b89558f51221964644751a69757"
+          }
+        },
+        {
+          "client_id": "1024259056910-8pcajesagm27t1hqpb5oe1f6ekp73os7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcAM9ktcDGHmVoaO7jwtv3qDrDHc2UktM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024259056910-8pcajesagm27t1hqpb5oe1f6ekp73os7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
