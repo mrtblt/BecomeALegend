@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mert.becomealegend.EditActivity"
+    android:background="@color/colorWhite">
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="name"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextSurname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="surname"
+        android:layout_below="@+id/editTextName"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="email"
+        android:layout_below="@+id/editTextSurname"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="phone"
+        android:layout_below="@+id/editTextEmail"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextProfession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="profession"
+        android:layout_below="@+id/editTextPhone"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="location"
+        android:layout_below="@+id/editTextProfession"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextDesignation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="textPersonName"
+        android:hint="designation"
+        android:layout_below="@+id/editTextLocation"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="7dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:layout_below="@+id/editTextDesignation"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/rounded_button_solid1"/>
+
+</RelativeLayout>
