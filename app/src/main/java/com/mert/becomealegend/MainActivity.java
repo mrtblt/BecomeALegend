@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         textViewSignUp.setOnClickListener(this);
         buttonLogin.setOnClickListener(this);
+
     }
 
     public void userLogin(){
