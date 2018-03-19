@@ -20,10 +20,11 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 
-public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
+public class SignUpEmployeeActivity extends AppCompatActivity implements View.OnClickListener{
 
     EditText editTextName;
     EditText editTextSurname;
@@ -34,15 +35,17 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
-    private DatabaseReference mDatabaseReference;
-
+    private FirebaseFirestore db;
+    private FirebaseDatabase fbDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_sign_up_employee);
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        fbDb = FirebaseDatabase.getInstance();
 
         textViewLogin = (TextView)findViewById(R.id.textViewSignUp);
         buttonSignUp = (Button)findViewById(R.id.buttonSignUp);
@@ -106,21 +109,33 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
 
-                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-                    String uid = currentUser.getUid();
+                    FirebaseUser currentUser = mAuth.getCurrentUser();
+                    final String eid = currentUser.getUid();
 
-                    mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
                     HashMap<String, String> userMap = new HashMap<>();
-                    userMap.put("email", email);
-                    userMap.put("name", name);
-                    userMap.put("surname",surname);
+                    userMap.put("employeeName", name);
+                    userMap.put("employeeSurname", surname);
+                    userMap.put("employeeEmail", email);
+                    userMap.put("employeeId", eid);
+                    userMap.put("employeeAge", "");
+                    userMap.put("userType", "employee");
+                    userMap.put("employeeLocation", "");
+                    userMap.put("employeeProfession", "");
+                    userMap.put("employeePhone", "");
+                    userMap.put("employeeExperience", "");
 
-                    mDatabaseReference.setValue(userMap);
+                    db.collection("employee").document(eid).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            DatabaseReference mRef =  fbDb.getReference().child("Users").child(eid);
+                            mRef.child("usersType").setValue("employee");
 
-                    Toast.makeText(getApplicationContext(), "User registered succesfully", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                            Toast.makeText(getApplicationContext(), "User registered succesfully", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignUpEmployeeActivity.this, ProfileEmployeeActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                        }
+                    });
                 }else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
                         Toast.makeText(getApplicationContext(),"User is already registered!", Toast.LENGTH_SHORT).show();
@@ -138,9 +153,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         if(v.getId() == buttonSignUp.getId()){
             RegisterUser();
         }
-
         if(v.getId() == textViewLogin.getId()){
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(SignUpEmployeeActivity.this, LoginActivity.class));
         }
 
     }

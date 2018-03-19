@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.mert.becomealegend.MainActivity">
+    tools:context="com.mert.becomealegend.SignUpEmployeeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,6 +37,25 @@
             android:paddingRight="15dp">
 
             <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="name"
+                android:inputType="textPersonName"
+                android:paddingBottom="15dp"/>
+
+            <EditText
+                android:id="@+id/editTextSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:hint="surname"
+                android:inputType="textPersonName"
+                android:paddingBottom="15dp"/>
+
+
+            <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,12 +73,12 @@
                 android:paddingBottom="15dp"/>
 
             <Button
-                android:id="@+id/buttonLogin"
+                android:id="@+id/buttonSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
-                android:text="Login"
+                android:text="Sign Up"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
                 android:background="@drawable/rounded_button_solid1"/>
@@ -69,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
-                android:text="Don't have a account? Sign Up"
+                android:text="Already have an account? Login"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPrimary" />
@@ -84,12 +103,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
     </RelativeLayout>
-
-
-
-
 
 </LinearLayout>

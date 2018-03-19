@@ -16,24 +16,34 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.mert.becomealegend.ProfileActivity;
-import com.mert.becomealegend.SignUpActivity;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     TextView textViewSignUp;
     Button buttonLogin;
     EditText editTextEmail;
     EditText editTextPassword;
     ProgressBar progressBar;
-
     FirebaseAuth mAuth;
+    FirebaseUser mUser;
+    FirebaseFirestore db;
+    FirebaseDatabase fbDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
+        db = FirebaseFirestore.getInstance();
+        fbDb= FirebaseDatabase.getInstance();
 
         textViewSignUp = (TextView)findViewById(R.id.textViewSignUp);
         buttonLogin = (Button)findViewById(R.id.buttonLogin);
@@ -47,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void userLogin(){
-        String email = editTextEmail.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
         if(email.isEmpty()){
@@ -81,9 +91,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
-                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    final String uid = mAuth.getCurrentUser().getUid();
+                    DatabaseReference databaseReference = fbDb.getReference().child("Users").child(uid).child("usersType");
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            final String type = dataSnapshot.getValue(String.class);
+
+                            if(type.length() == 8){
+                                Intent intent = new Intent(LoginActivity.this, ProfileEmployeeActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+                            if(type.length() == 7){
+                                Intent intent = new Intent(LoginActivity.this, ProfileCompanyActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }else{
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -94,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v.getId() == textViewSignUp.getId()){
-            startActivity(new Intent(this, SignUpActivity.class));
+            startActivity(new Intent(this, ChooseActivity.class));
         }
 
         if(v.getId() == buttonLogin.getId()){
