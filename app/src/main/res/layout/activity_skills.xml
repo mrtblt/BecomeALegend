@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="projects.etrkk5.employeer.SkillsActivity"
+    android:background="@color/colorWhite">
+
+    <EditText
+        android:id="@+id/editTextSkill1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="add some skills..."
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextSkill2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="add some skills..."
+        android:layout_below="@+id/editTextSkill1"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextSkill3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="add some skills..."
+        android:layout_below="@+id/editTextSkill2"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextSkill4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="add some skills..."
+        android:layout_below="@+id/editTextSkill3"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <EditText
+        android:id="@+id/editTextSkill5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPersonName"
+        android:hint="add some skills..."
+        android:layout_below="@+id/editTextSkill4"
+        android:textColor="@color/colorSoftBlack"
+        android:textColorHint="@color/colorTextProfile"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/colorTextProfile"
+        android:layout_below="@+id/editTextSkill5"
+        android:text="hint: add your top 5 skills to increase the chances that employers can find you."
+        />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:background="@drawable/circle"
+        android:drawableTop="@drawable/save"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Save"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"/>
+
+</RelativeLayout>

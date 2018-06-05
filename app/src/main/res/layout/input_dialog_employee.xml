@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/mTextViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="title..."
+        android:inputType="text"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+    <TextView
+        android:id="@+id/mTextViewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="description..."
+        android:inputType="textMultiLine"
+        android:textSize="16sp"
+        android:minLines="2"
+        android:maxLines="14"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:id="@+id/mTextViewLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="location..."
+        android:inputType="text"
+        android:textSize="16sp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+</LinearLayout>

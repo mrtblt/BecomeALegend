@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.mert.becomealegend.SignUpCompanyActivity">
+    tools:context="projects.etrkk5.employeer.SignUpCompanyActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

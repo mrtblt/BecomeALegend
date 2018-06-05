@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mert.becomealegend.EditEmployeeActivity"
+    tools:context="projects.etrkk5.employeer.EditEmployeeActivity"
     android:background="@color/colorWhite">
 
     <EditText
@@ -101,6 +101,18 @@
         android:textColorHint="@color/colorTextProfile"/>
 
     <Button
+        android:id="@+id/buttonSkills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonSave"
+        android:background="@drawable/circle"
+        android:drawableTop="@drawable/skill"
+        android:layout_marginLeft="260dp"
+        android:layout_marginRight="10dp"
+        android:text="Add skills"
+        android:textAllCaps="false"/>
+
+    <Button
         android:id="@+id/buttonSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,7 +121,7 @@
         android:layout_marginTop="20dp"
         android:text="Save"
         android:textAllCaps="false"
-        android:layout_below="@+id/editTextEmployeeAge"
+        android:layout_alignParentBottom="true"
         android:textColor="@color/colorWhite"
         android:background="@drawable/rounded_button_solid1"/>
 
